@@ -6,3 +6,5 @@ This change was made through the terminal.
 
 This line should be cherry picked from this branch
 This line should not appear in the cherry pick
+
+NEW LINE
