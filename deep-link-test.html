@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bank Hapoalim</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script type="text/javascript">
+var IPHONE_APPSTORE = "https://itunes.apple.com/us/app/פועלים-לעסקים-2-בנק-הפועלים/id1192185734?mt=8";
+
+function startMyApp( storeURL) {
+  window.location=“businessbankait://"+window.location.search;
+  setTimeout(function () {
+    window.location = storeURL; //fallback url
+  }, 300);
+}
+
+function startAndroidApp() {
+  window.location="intent://"+window.location.search+"#Intent;scheme=businessbankait;package=com.bnhp.businessapp;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.bnhp.businessapp;end";
+}
+
+function detectApp() {
+  var userAgent = navigator.userAgent.toString().toLowerCase();
+  if (userAgent.indexOf("iphone") > -1 || userAgent.indexOf("ipad") > -1) {
+    startMyApp( IPHONE_APPSTORE);
+  }
+  else (userAgent.indexOf("android") > -1)
+  {
+    startAndroidApp();
+  }
+}
+</script>
+</head>
+<body onload="detectApp();">
+</body>
+</html>
